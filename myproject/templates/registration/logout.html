@@ -1,0 +1,14 @@
+{% load staticfiles %}
+
+{% include 'common/header.html' %}
+{% include 'common/navbar.html' %}
+
+<section id="first">
+<div class='row'>
+<p class='text-align-center lead'>You have successfully logged out.</p><p class='text-align-center lead'><a href="{% url 'auth_login' %}">Login</a></p></p>
+
+   </div>
+        
+    </section>
+
+{% include 'common/footer.html' %}

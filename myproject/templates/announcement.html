@@ -1,0 +1,98 @@
+{% load staticfiles %}
+
+{% include 'common/header.html' %}
+{% include 'common/navbar2.html' %}
+
+<div class="container" id="first">
+
+<div class="col-md-8 ">
+
+<h3>Schedule</h3>
+<hr>
+{% if schedule %}
+	<table class="table ">
+	<thead>
+          <tr>
+              <th data-field="id">Event</th>
+              <th data-field="name">Date</th>
+          </tr>
+        </thead>
+        
+        {% for i in schedule %}
+        <tr><td>{{ i.title }}</td><td>{{ i.date }}</td></tr>
+        {% endfor %}
+  </table>
+  {% endif %} 
+  </div>
+  
+  <div class="col-md-3 col-md-offset-1">
+  <h3>News</h3>
+    <hr>
+  {% if news %}
+  <marquee direction="up" scrollamount='5' style="height: 200px;background-color: rgba(119, 119, 119, 0.9);padding: 20px;color: white;">
+ 
+  <ul>
+    {% for i in news %}
+    <li>{{i.message}}</li><br/><br/>
+    {% endfor %}
+    </ul>
+    </marquee>
+  {% endif %}
+  </div>
+
+</div>        
+
+<div class="container" id="first">
+  <div class="col-md-4 ">
+    <h3>Top Scorers 2013 Batch</h3>
+    <hr>
+    {% if top_ten1 %}
+        <table class="table ">
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Score</th>
+          </tr>
+        </thead>
+       
+      {% for i in top_ten1 %}
+      <tr>
+        <td>{{ i.stud_name }}</td>
+        <td>{{ i.stud_score }}</td>
+      </tr>
+
+      {% endfor %}
+      </table>
+        
+  {% endif %}
+  </div>
+
+  <div class="col-md-4 col-md-offset-4">
+    <h3>Top Scorers in 2014 Batch</h3>
+    <hr>
+    {% if top_ten2 %}
+        <table class="table ">
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Score</th>
+          </tr>
+        </thead>
+       
+      {% for i in top_ten2 %}
+      <tr>
+        <td>{{ i.stud_name }}</td>
+        <td>{{ i.stud_score }}</td>
+      </tr>
+
+      {% endfor %}
+      </table>
+        
+  {% endif %}
+  </div>
+</div>
+
+
+        
+
+{% include 'common/footer.html' %}

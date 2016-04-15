@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+{% include 'common/header.html' %}
+{% include 'common/navbar2.html' %}
+
+<!-- 
+Added {% csrf_token%}, for security reasons. 
+ -->
+
+<section id="first">
+<div class="row">
+        <div class="col-md-6 col-md-offset-3">
+         
+              <h3 >Submit your query</h3>
+              <hr>
+              <div class="row"></div>
+				<form   method='POST' action=''>{% csrf_token%} 
+				{{form.as_p}}
+				<input type="submit" value="Submit Query"/>
+				</form>
+
+				
+        </div>
+      </div>
+</section>      
+
+
+
+ {% include 'common/footer.html' %}

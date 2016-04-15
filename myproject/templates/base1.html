@@ -1,0 +1,10 @@
+{% if user.is_authenticated %}
+    <p>
+    Welcome, {{ user.username }}
+    <a href="{% url 'password/change/' %}">[Change Password]</a>
+    <a href="{% url 'logout' %}">[logout]</a>
+    <a href="/password/change">[Change Password]</a>
+    </p>
+{% else %}
+    <p>Welcome, Guest <a href="{% url 'home' %}">[Home]</a></p>
+{% endif %}

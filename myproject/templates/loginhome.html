@@ -1,0 +1,31 @@
+
+{% load staticfiles %}
+
+{% include 'common/header.html' %}
+{% include 'common/navbar2.html' %}
+<style type="text/css">
+    a {
+    color: hotpink;
+}
+</style>
+
+<section id="first">
+    <div class="container">
+
+    <p>Welcome {{ user.first_name }} !!!</p>
+    <p>ID : {{ user.username }}</p>
+    <p>Profile : {{ user.groups.all.0.name }} </p>
+
+   <div class="row" id="first">
+   <div class="col-md-2">
+    <a href="/logout/" class= "btn btn-lg btn-primary btn-blocktype">Logout</a>
+     </div>
+     <div class="col-md-2">
+     <a href="/accounts/password/change" class= "btn btn-lg btn-primary btn-blocktype">Change Password</a>
+    </div>
+    
+    </div>
+
+</section>    
+{% include 'common/footer.html' %}    
+

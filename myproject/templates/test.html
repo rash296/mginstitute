@@ -1,0 +1,71 @@
+  {% load staticfiles %}
+
+{% include 'common/header.html' %}
+
+{% include 'common/navbar2.html' %}
+
+{% if request.user.is_superuser %}
+<section id="first">
+<div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            
+              <h3>Upload Test Sheet</h3>
+              <hr>
+              <div class="row"></div>
+              <form action="/test/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+            <div class="row">
+              <div class="col-md-6 ">
+                <p>Batch : </p>
+              </div>
+            <div class="col-md-6 ">
+              
+                {{ form.batch.errors }}
+               {{ form.batch }}
+               </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 ">
+                <p>Test no : </p>
+              </div>
+            <div class="col-md-6 ">
+              
+                {{ form.test_no.errors }}
+               {{ form.test_no }}
+               </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-md-6 ">
+                <p>Test Average</p>
+              </div>
+
+            <div class="col-md-6 ">
+            <p>
+                {{ form.test_avg.errors }}
+               {{ form.test_avg}}
+            </p></div>
+            </div><br/>
+
+            <p>{{ form.testsheet.label_tag }} {{ form.testsheet.help_text }}</p>
+
+            <p>
+                {{ form.testsheet.errors }}
+               {{ form.testsheet}}
+            </p>
+            <div class="card-action">
+            <p><input type="submit" value="Upload" /></p></div>
+        </form>
+            </div>
+           
+          </div>
+        </div>
+
+      
+  </section>    
+           
+     {% endif %}     
+
+    {% include 'common/footer.html' %}       
